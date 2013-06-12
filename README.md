@@ -30,6 +30,10 @@ Cube Slam is a WebRTC Chrome Experiment that you can play face-to-face against y
 
     $ dev_appserver.py .
 
+  or use an nginx proxy to take care of the static files using:
+
+    $ make proxy # and follow the instructions...
+
 
 ## Deploying
 

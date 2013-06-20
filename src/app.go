@@ -372,8 +372,10 @@ func ReadData(d []byte) (interface{}, error) {
 
 func Cleanup(str string) string {
   re := regexp.MustCompile("[^\\w\\d]+")
-  str = re.ReplaceAllLiteralString(str,".")
-  return str
+  str = re.ReplaceAllLiteralString(str,"-")
+  re := regexp.MustCompile("-+")
+  str = re.ReplaceAllLiteralString(str,"-")
+  return strings.Trim(str,"- ")
 }
 
 func init() {

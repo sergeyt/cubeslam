@@ -63,8 +63,11 @@ func Main(w http.ResponseWriter, r *http.Request) {
   // to make sure that players have the same settings
   // in multiplayer we include the query in the room name
   if r.URL.RawQuery != "" {
-    roomName = Cleanup(roomName + "-" + r.URL.RawQuery)
+    roomName = roomName + "-" + r.URL.RawQuery
   }
+
+  // clean up the roomName to avoid xss
+  roomName = Cleanup(roomName)
 
   // Data to be sent to the template:
   data := Template{Room:roomName, AcceptLanguage: AcceptLanguage(r), Minified: Minified(), Dev: appengine.IsDevAppServer(), Version: appengine.VersionID(c) }

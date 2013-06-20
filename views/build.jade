@@ -6,9 +6,9 @@
 !!! 5
 //\[if IE]><html class="ie"><![endif]
 //\[if !IE]><!
-html(lang='en')
+html(lang='en',manifest='/manifest.appcache')
   //\<![endif]
-  head(prefix='og: http://ogp.me/ns#')
+  head(prefix='og:http://ogp.me/ns#')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='apple-mobile-web-app-capable',content='yes')
@@ -19,7 +19,7 @@ html(lang='en')
     meta(property='og:type', content='website')
     meta(property='og:title', content=name, arb:id='title')
     meta(property='og:description', content=description, arb:id='metaDescription')
-    meta(property='og:image', content='#{url}images/mobile/apple-touch-114.png')
+    meta(property='og:image', content='#{url}images/mobile/gameboard.jpg')
     meta(property='og:url', content=url)
 
     // if lt IE 9
@@ -33,7 +33,7 @@ html(lang='en')
     link(rel='canonical', href=url)
 
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Varela')
-    link(rel='stylesheet', href='/stylesheets/slam.css')
+    link(rel='stylesheet', href='/stylesheets/slam.css?v={{.Version}}')
     script
 
       var _gaq = _gaq || [];
@@ -478,6 +478,13 @@ html(lang='en')
             a.terms(target='_blank', href='https://www.google.com/policies/', arb:id='footerTerms') Terms &amp; privacy
             .buttons
               button.return.icon(href='#', data-icon='↩', type='button')
+          div.state.inactive
+              p Developed and created by:
+              ul
+                li
+                  a(href='http://northkingdom.com', title='Developed and Designed by North Kingdom') North Kingdom
+                li
+                  a(href='http://publicclass.se', title='Developed by Public Class') Public Class
 
 
 
@@ -511,7 +518,7 @@ html(lang='en')
               h2(arb:id='errorDCHeader') Please try in Chrome
               p(arb:id='errorDCBrowserSupport') Sorry, the two-player game requires Chrome.
               .buttons
-                a.button.green(href='https://www.google.com/chrome/', arb:id='buttonInstallChrome') Install Chrome
+                a.button.green(href='https://www.google.com/chrome/cubeslam', arb:id='buttonInstallChrome') Install Chrome
                 button.main-menu.green(type='button', arb:id='buttonMainMenu') Main Menu
 
       .state.error-browser.inactive
@@ -521,7 +528,7 @@ html(lang='en')
               h2(arb:id='errorBrowserHeader') Browser not supported
               p(arb:id='errorBrowserSupport') Sorry, this game does not support your browser
               .buttons
-                a.button.green(href='https://www.google.com/chrome/', arb:id='buttonInstallChrome') Install Chrome
+                a.button.green(href='https://www.google.com/chrome/cubeslam', arb:id='buttonInstallChrome') Install Chrome
 
       .state.error-lonelyroom.inactive
         .dialog.bottom
@@ -589,14 +596,14 @@ html(lang='en')
 
     script(src='/_ah/channel/jsapi')
     script(src='/javascript/libs/dat.gui.js')
-    script(src='/javascript/libs/stats.js')
-    script(src='/javascript/slam.{{.Minified}}js')
+    script(src='/javascript/libs/modernizr.custom.65399.js')
+    script(src='/javascript/libs/stats.{{.Minified}}js')
+    script(src='/javascript/slam.{{.Minified}}js?v={{.Version}}')
     script
       require('slam')(ctx = {
         room: '{{.Room}}',
-        user: '{{.User}}',
-        token: '{{.Token}}',
         acceptLanguage: '{{.AcceptLanguage}}',
-        ext: '.{{.Minified}}js',
-        dev: {{.Dev}}
+        ext: '.{{.Minified}}js?v={{.Version}}',
+        dev: {{.Dev}},
+        v: '{{.Version}}'
       })

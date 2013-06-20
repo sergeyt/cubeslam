@@ -1,6 +1,7 @@
 Cube Slam
 =========
 
+Cube Slam is a WebRTC Chrome Experiment that you can play face-to-face against your friends.
 
 ## Building
 
@@ -28,6 +29,10 @@ Cube Slam
   To get it up and running on a local machine the app engine dev server must be up and running. Start it with:
 
     $ dev_appserver.py .
+
+  or use an nginx proxy to take care of the static files using:
+
+    $ make proxy # and follow the instructions...
 
 
 ## Deploying
@@ -71,7 +76,7 @@ Add these to the URL querystring to toggle some flags.
 
 ### Game play
 
-  * 'quality' - Render/performance quality in webgl. Valid values is 'high' (quality) and 'low' (performance)
+  * `quality` - webgl rendering quality. possible values are `best`, `high`, `low`, `mobile`
   * `god` - no player can die
   * `momentum` - set to `off` to turn off paddle momentum
   * `round` - set to a number to start at that particular round
@@ -92,4 +97,5 @@ Add these to the URL querystring to toggle some flags.
   * `mobile` - force mobile
   * `paused` - start game in paused mode. step forward a frame using `.`-key.
   * `silent` - don't load in sounds
-  * `dmaf` - turn on dmaf logs*
+  * `dmaf` - turn on dmaf logs
+

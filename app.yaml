@@ -1,5 +1,5 @@
 application: webrtcgame
-version: cheats
+version: live
 runtime: go
 api_version: go1
 

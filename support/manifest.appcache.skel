@@ -25,9 +25,9 @@ CACHE:
 /fonts/icomoon.svg
 /fonts/icomoon.ttf
 /fonts/icomoon.woff
-http://fonts.googleapis.com/css?family=Varela
-http://themes.googleusercontent.com/static/fonts/varela/v4/maB5vWJo0EAVzvHPjBkLM-vvDin1pK8aKteLpeZ5c0A.woff
-http://themes.googleusercontent.com/static/fonts/varela/v4/yNZkEnhwnBUaXAL8M0Uk6A.ttf
+https://fonts.googleapis.com/css?family=Varela
+https://themes.googleusercontent.com/static/fonts/varela/v4/maB5vWJo0EAVzvHPjBkLM-vvDin1pK8aKteLpeZ5c0A.woff
+https://themes.googleusercontent.com/static/fonts/varela/v4/yNZkEnhwnBUaXAL8M0Uk6A.ttf
 /stylesheets/slam.css?v={{.Version}}
 
 #style sheet images
